@@ -4,7 +4,7 @@ not_contains() {
     [[ $1 =~ (^|[[:space:]])$2($|[[:space:]]) ]] && return 1 || return 0
 }
 
-declare -a Customers=("customer1" "customer2" "global")
+declare -a Customers=("customer1" "customer2")
 declare -a Environments=("production" "staging")
 declare -a ExcludeCustomers=("customer2")
 declare -a ExcludeEnvironment=("staging")
