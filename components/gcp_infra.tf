@@ -10,7 +10,6 @@ variable "home" {
   description = "current user home"
 }
 
-
 provider "google" {
   project     = var.gcp_details.project
   region      = var.gcp_details.region
@@ -25,9 +24,6 @@ variable "gcp_details" {
 variable "gke_details" {
   type = map(string)
   description = "gke details"
-  default = {
-    gke_num_nodes = 2
-  }
 }
 
 # VPC
@@ -43,5 +39,3 @@ resource "google_compute_subnetwork" "subnet" {
   network       = google_compute_network.vpc.name
   ip_cidr_range = var.gke_details.subnet
 }
-
-

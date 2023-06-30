@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$#" -ne 2 ]; then
-    echo "Illegal number of parameters. Example: sh init.sh production customer1"
+    echo "Illegal number of parameters. Example: sh plan.sh production customer1"
 fi
 
 DIR="$1/$2"
