@@ -6,15 +6,18 @@ not_contains() {
 
 declare -a Customers=("customer1" "customer2")
 declare -a Environments=("production" "staging")
-declare -a ExcludeCustomers=("customer2")
+declare -a ExcludeCustomers=()
 declare -a ExcludeEnvironment=("staging")
+declare -a RunningOn=("infra" "apps")
 
 for cust in ${Customers[@]}; do
 	for envrmnt in ${Environments[@]}; do
-		if not_contains $ExcludeCustomers $cust && not_contains $ExcludeEnvironment $envrmnt; then
-			cd $envrmnt/$cust
-			terraform init
-			cd -
-		fi
+		for dirname in ${RunningOn[@]}; do
+			if not_contains $ExcludeCustomers $cust && not_contains $ExcludeEnvironment $envrmnt; then
+				cd $envrmnt/$cust/$dirname
+				terraform init
+				cd -
+			fi
+		done
 	done
 done

@@ -1,1 +1,0 @@
-../../components/gcp_infra.tf

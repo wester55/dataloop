@@ -1,1 +1,0 @@
-../../applications/grafana.tf

@@ -50,6 +50,9 @@ resource "null_resource" "kubectl_configure" {
   depends_on = [null_resource.sa_activate]
   provisioner "local-exec" {
     command = "gcloud container clusters get-credentials ${var.gcp_details.project}-gke --region ${var.gcp_details.region} --project ${var.gcp_details.project}"
+    environment = {
+      KUBECONFIG = "${var.home}/.kube/${var.environment}-${var.customer}-kubeconfig"
+    }
   }
 }
 

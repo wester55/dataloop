@@ -1,15 +1,3 @@
-variable "customer" {
-  description = "customer modified"
-}
-
-variable "environment" {
-  description = "environment modified"
-}
-
-variable "home" {
-  description = "current user home"
-}
-
 provider "google" {
   project     = var.gcp_details.project
   region      = var.gcp_details.region
